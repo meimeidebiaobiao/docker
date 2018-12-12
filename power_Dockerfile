@@ -1,0 +1,11 @@
+From java:sm
+MAINTAINER power-1.0
+
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+WORKDIR /app
+COPY power.jar /app/power.jar
+COPY lib /app/lib
+EXPOSE 8083
+CMD [ "java", "-jar", "power.jar" ]
+
